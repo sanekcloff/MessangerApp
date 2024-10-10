@@ -27,22 +27,6 @@ namespace ApplicationData.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Statuses",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Title = table.Column<string>(type: "TEXT", nullable: false),
-                    IsBusy = table.Column<bool>(type: "INTEGER", nullable: false),
-                    IsMovedAway = table.Column<bool>(type: "INTEGER", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Statuses", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -58,18 +42,13 @@ namespace ApplicationData.Migrations
                     MessageColor = table.Column<string>(type: "TEXT", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     LastActive = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    StatusId = table.Column<int>(type: "INTEGER", nullable: false),
+                    IsBusy = table.Column<bool>(type: "INTEGER", nullable: false),
+                    IsMovedAway = table.Column<bool>(type: "INTEGER", nullable: false),
                     IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Users_Statuses_StatusId",
-                        column: x => x.StatusId,
-                        principalTable: "Statuses",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -138,11 +117,6 @@ namespace ApplicationData.Migrations
                 name: "IX_Messages_UserId",
                 table: "Messages",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Users_StatusId",
-                table: "Users",
-                column: "StatusId");
         }
 
         /// <inheritdoc />
@@ -159,9 +133,6 @@ namespace ApplicationData.Migrations
 
             migrationBuilder.DropTable(
                 name: "Users");
-
-            migrationBuilder.DropTable(
-                name: "Statuses");
         }
     }
 }

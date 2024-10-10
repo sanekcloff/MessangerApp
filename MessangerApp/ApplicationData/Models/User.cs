@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -22,16 +23,27 @@ namespace ApplicationData.Models
         public required string MessageColor { get; set; } = string.Empty;
         public required DateTime CreationDate { get; set; }
         public required DateTime LastActive { get; set; }
+        
+        public Statuses Status { get; set; }
 
-        public required int StatusId { get; set; }
-        public virtual Status Status { get; set; } = null!;
+        public required bool IsBusy { get; set; }
+        public required bool IsMovedAway { get; set; }
 
         public required bool IsDeleted { get; set; }
 
         public virtual ICollection<Chat> Chats { get; set; } = null!;
 
         [NotMapped]
-        public string Username { get => $"{Nickname}:{Tag}"; }
-        
+        public string Username => $"{Nickname}:{Tag}";
+        public string CreationDateFormated => CreationDate.ToString("f");
+        public string LastActiveFormated => CreationDate.ToString("f");
+
+    }
+    public enum Statuses
+    {
+        Online = 0,
+        IsBussy = 1,
+        IsMoveAway = 2,
+        Offline = 3
     }
 }

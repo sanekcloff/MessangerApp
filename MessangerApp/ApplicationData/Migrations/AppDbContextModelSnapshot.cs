@@ -3,7 +3,6 @@ using System;
 using ApplicationData.Core.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,11 +10,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApplicationData.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241009192254_Initial")]
-    partial class Initial
+    partial class AppDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -79,30 +76,6 @@ namespace ApplicationData.Migrations
                     b.ToTable("Messages");
                 });
 
-            modelBuilder.Entity("ApplicationData.Models.Status", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("IsBusy")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("IsMovedAway")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Statuses");
-                });
-
             modelBuilder.Entity("ApplicationData.Models.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -128,7 +101,13 @@ namespace ApplicationData.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("IsBusy")
+                        .HasColumnType("INTEGER");
+
                     b.Property<bool>("IsDeleted")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsMovedAway")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("LastActive")
@@ -150,7 +129,7 @@ namespace ApplicationData.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("StatusId")
+                    b.Property<int>("Status")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Tag")
@@ -158,8 +137,6 @@ namespace ApplicationData.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("StatusId");
 
                     b.ToTable("Users");
                 });
@@ -198,17 +175,6 @@ namespace ApplicationData.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ApplicationData.Models.User", b =>
-                {
-                    b.HasOne("ApplicationData.Models.Status", "Status")
-                        .WithMany("Users")
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Status");
-                });
-
             modelBuilder.Entity("ChatUser", b =>
                 {
                     b.HasOne("ApplicationData.Models.Chat", null)
@@ -227,11 +193,6 @@ namespace ApplicationData.Migrations
             modelBuilder.Entity("ApplicationData.Models.Chat", b =>
                 {
                     b.Navigation("Messages");
-                });
-
-            modelBuilder.Entity("ApplicationData.Models.Status", b =>
-                {
-                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }

@@ -10,18 +10,7 @@ namespace TestApp
         {
             using (AppDbContext ctx = new())
             {
-                ctx.Statuses.Add(new Status() 
-                { 
-                    IsBusy = false, 
-                    IsDeleted = false, 
-                    IsMovedAway = false, 
-                    Title = "В сети"
-                });
-                ctx.SaveChanges();
-                ctx.Statuses.ForEachAsync((status) =>
-                {
-                    Console.WriteLine(status.Title);
-                });
+                
             }
         }
     }
