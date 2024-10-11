@@ -1,6 +1,7 @@
 ﻿using ApplicationData.Core.Context;
 using ApplicationData.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace TestApp
 {
@@ -8,10 +9,9 @@ namespace TestApp
     {
         static void Main(string[] args)
         {
-            using (AppDbContext ctx = new())
-            {
-                
-            }
+            DatabaseFacade facade = new DatabaseFacade(new AppDbContext());
+            facade.EnsureCreated();
         }
+
     }
 }

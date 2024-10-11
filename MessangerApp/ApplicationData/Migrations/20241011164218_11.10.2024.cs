@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ApplicationData.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class _11102024 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,18 +32,16 @@ namespace ApplicationData.Migrations
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     Image = table.Column<byte[]>(type: "BLOB", nullable: false),
-                    ImageBackground = table.Column<string>(type: "TEXT", nullable: false),
+                    Color = table.Column<string>(type: "TEXT", nullable: false),
                     Nickname = table.Column<string>(type: "TEXT", nullable: false),
                     Tag = table.Column<string>(type: "TEXT", nullable: false),
-                    CustomStatus = table.Column<string>(type: "TEXT", nullable: false),
+                    CustomStatus = table.Column<string>(type: "TEXT", nullable: true),
                     Email = table.Column<string>(type: "TEXT", nullable: false),
                     Login = table.Column<string>(type: "TEXT", nullable: false),
                     PasswordHash = table.Column<string>(type: "TEXT", nullable: false),
-                    MessageColor = table.Column<string>(type: "TEXT", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     LastActive = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    IsBusy = table.Column<bool>(type: "INTEGER", nullable: false),
-                    IsMovedAway = table.Column<bool>(type: "INTEGER", nullable: false),
+                    Status = table.Column<int>(type: "INTEGER", nullable: false),
                     IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
