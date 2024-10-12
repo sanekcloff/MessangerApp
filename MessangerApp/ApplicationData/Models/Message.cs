@@ -10,7 +10,7 @@ namespace ApplicationData.Models
     public class Message
     {
         public Message() { }
-        public Message(string text, Guid userId, Guid chatId, User user, Chat chat)
+        public Message(string text, User user, Chat chat)
         {
             Id = Guid.NewGuid();
             Text = text;

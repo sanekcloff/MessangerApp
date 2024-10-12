@@ -7,13 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Core\AppSettings\**" />
     <Compile Remove="Resources\**" />
+    <EmbeddedResource Remove="Core\AppSettings\**" />
     <EmbeddedResource Remove="Resources\**" />
+    <None Remove="Core\AppSettings\**" />
     <None Remove="Resources\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Core\AppSettings\" />
     <Folder Include="Core\Database\" />
   </ItemGroup>
 

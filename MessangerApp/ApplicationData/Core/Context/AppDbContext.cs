@@ -17,8 +17,7 @@ namespace ApplicationData.Core.Context
         string getSqliteConnect()
         {
             var dir = Directory.GetParent(Environment.CurrentDirectory)?.Parent?.Parent?.Parent;
-            return $@"Data Source=\ApplicationData\Core\Database\MessangerDB.db";
-            
+            return $@"Data source={dir}\ApplicationData\Core\Database\MessangerDB.db";
         }
 
         public DbSet<User> Users { get; set; }
