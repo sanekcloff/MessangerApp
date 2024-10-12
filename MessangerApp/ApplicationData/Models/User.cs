@@ -25,7 +25,8 @@ namespace ApplicationData.Models
             CustomStatus = null;
             Email = email;
             Login = login;
-            PasswordHash = HashPassword(password);
+            Salt = GenerateSalt();
+            PasswordHash = HashPassword(password,Salt);
             CreationDate = DateTime.Now;
             LastActive = DateTime.Now;
             Status = Statuses.Offline;
@@ -42,6 +43,7 @@ namespace ApplicationData.Models
         public string Email { get; set; } = string.Empty;
         public string Login { get; set; } = string.Empty;
         public string PasswordHash { get; set; } = string.Empty;
+        public string Salt { get; set; } = string.Empty;
         public DateTime CreationDate { get; set; }
         public DateTime LastActive { get; set; }
         
@@ -83,11 +85,11 @@ namespace ApplicationData.Models
             // Преобразуем в формат HEX
             return $"#{r:X2}{g:X2}{b:X2}";
         }
-        string HashPassword(string password)
+        string HashPassword(string password, string salt)
         {
             using (var sha256 = SHA256.Create())
             {
-                byte[] saltedPassword = Encoding.UTF8.GetBytes(GenerateSalt() + password);
+                byte[] saltedPassword = Encoding.UTF8.GetBytes(salt + password);
                 byte[] hashedPassword = sha256.ComputeHash(saltedPassword);
                 return Convert.ToBase64String(hashedPassword);
             }
