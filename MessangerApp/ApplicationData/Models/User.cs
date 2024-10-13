@@ -14,24 +14,13 @@ namespace ApplicationData.Models
 {
     public class User
     {
-        public User() { }
         public User(byte[] image, string nickname, string email, string login, string password)
         {
-            Id = Guid.NewGuid();
             Image = image;
-            Color = ColorGenerator.GenerateHexColor();
             Nickname = nickname;
-            Tag = TagGenerator.GenerateTag(nickname);
             CustomStatus = null;
             Email = email;
             Login = login;
-            Salt = PasswordHasher.GenerateSalt();
-            PasswordHash = PasswordHasher.HashPassword(password,Salt);
-            CreationDate = DateTime.Now;
-            LastActive = DateTime.Now;
-            Status = Statuses.Offline;
-            IsDeleted = false;
-
         }
         public Guid Id { get; set; }
 
@@ -57,5 +46,6 @@ namespace ApplicationData.Models
         public string Username => $"{Nickname}:{Tag}";
         public string CreationDateFormated => CreationDate.ToString("f");
         public string LastActiveFormated => CreationDate.ToString("f");      
+        public string ImagePath { get; set; }
     }
 }

@@ -8,9 +8,8 @@ namespace ApplicationData.Utilities.Generators
 {
     internal static class ColorGenerator
     {
-        internal static string GenerateHexColor()
+        internal static string GenerateHexColor(Random random)
         {
-            var random = new Random();
             // Генерируем три случайных числа от 0 до 255 для RGB
             byte r = (byte)random.Next(256);
             byte g = (byte)random.Next(256);

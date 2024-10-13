@@ -11,7 +11,7 @@ namespace ApplicationData.Handlers
 {
     public class UserHandler : IEntityHandler<User>
     {
-        public User GetEntity(User entity, AppDbContext context) => context.Users.FirstOrDefault(entity);
+        public  User GetEntity(User entity, AppDbContext context) => context.Users.FirstOrDefault(entity);
         
         public string Add(User entity, AppDbContext context)
         {

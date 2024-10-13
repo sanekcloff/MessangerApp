@@ -9,9 +9,8 @@ namespace ApplicationData.Utilities.Generators
 {
     internal static class TagGenerator
     {
-        internal static string GenerateTag(string nickname)
+        internal static string GenerateTag(string nickname, Random random)
         {
-            var random = new Random();
             var tag = string.Empty;
             while (true)
             {
