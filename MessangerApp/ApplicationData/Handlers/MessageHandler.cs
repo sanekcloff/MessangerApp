@@ -13,18 +13,18 @@ namespace ApplicationData.Handlers
     {
         public Message GetEntity(Message entity, AppDbContext context) => context.Messages.FirstOrDefault(entity);
 
-        public string Add(Message entity, AppDbContext context)
+        public (string, string) Add(Message entity, AppDbContext context)
         {
             try
             {
                 context.Messages.Add(entity);
                 context.SaveChanges();
-                return "Сообщение добавлено!";
+                return ("Сообщение добавлено!", "DEBUG: Операция успешна!");
             }
             catch (Exception ex)
             {
 
-                return $"{ex.Message}";
+                return ($"{ex.Message}", "");
             }
         }
 

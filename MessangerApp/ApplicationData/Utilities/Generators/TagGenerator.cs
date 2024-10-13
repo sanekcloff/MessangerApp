@@ -9,7 +9,7 @@ namespace ApplicationData.Utilities.Generators
 {
     internal static class TagGenerator
     {
-        internal static string GenerateTag(string nickname, Random random)
+        internal static string GenerateTag(string nickname, Random random, AppDbContext context)
         {
             var tag = string.Empty;
             while (true)
@@ -18,14 +18,11 @@ namespace ApplicationData.Utilities.Generators
                 {
                     tag += random.Next(0, 10);
                 }
-                using (AppDbContext ctx = new())
-                {
-                    var isExist = ctx.Users.Any(u => u.Nickname == nickname && u.Tag == tag);
-                    if (!isExist)
-                        return tag;
-                    else
-                        tag = string.Empty;
-                }
+                var isExist = context.Users.Any(u => u.Nickname == nickname && u.Tag == tag);
+                if (!isExist)
+                    return tag;
+                else
+                    tag = string.Empty;
             }
         }
     }

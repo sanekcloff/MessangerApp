@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApplicationData.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241011164218_11.10.2024")]
-    partial class _11102024
+    [Migration("20241013183255_v1")]
+    partial class v1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -100,8 +100,11 @@ namespace ApplicationData.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<byte[]>("Image")
-                        .IsRequired()
                         .HasColumnType("BLOB");
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("INTEGER");
@@ -109,15 +112,19 @@ namespace ApplicationData.Migrations
                     b.Property<DateTime>("LastActive")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Login")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Nickname")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Salt")
                         .IsRequired()
                         .HasColumnType("TEXT");
 

@@ -10,9 +10,10 @@ namespace ApplicationData.Utilities.Converters
 {
     public static class ImageConverter
     {
-        public static byte[] ImageToBytes(string imagePath)
+        public static byte[]? ImageToBytes(string imagePath)
         {
-            return File.ReadAllBytes(imagePath); ;
+            var bytes = File.ReadAllBytes(imagePath);
+            return bytes;
         }
         public static Image GetImage(byte[] byteArray)
         {

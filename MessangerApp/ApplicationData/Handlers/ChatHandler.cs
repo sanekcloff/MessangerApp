@@ -13,17 +13,17 @@ namespace ApplicationData.Handlers
     {
         public Chat GetEntity(Chat entity, AppDbContext context) => context.Chats.FirstOrDefault(entity);
 
-        public string Add(Chat entity, AppDbContext context)
+        public (string, string) Add(Chat entity, AppDbContext context)
         {
             try
             {
                 context.Chats.Add(entity);
                 context.SaveChanges();
-                return "Чат добавлен!";
+                return ("Чат добавлен!", "DEBUG: Операция успешна!");
             }
             catch (Exception ex)
             {
-                return $"{ex.Message}";
+                return ($"{ex.Message}", "");
             }
         }
 
