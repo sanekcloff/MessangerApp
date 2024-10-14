@@ -38,8 +38,8 @@ namespace ApplicationData.Models
         public string Username => $"{Nickname}#{Tag}";
         public string CreationDateFormated => CreationDate.ToString("f");
         public string LastActiveFormated => CreationDate.ToString("f");
-        public string ImagePath { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;
+        public string ImagePath() => string.Empty;
+        public string Password() => string.Empty;
 
         public override bool Equals(object? obj)
         {

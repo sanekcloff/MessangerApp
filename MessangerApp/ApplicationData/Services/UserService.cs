@@ -25,13 +25,13 @@ namespace ApplicationData.Services
             user.Color = ColorGenerator.GenerateHexColor(random);
             user.Tag = TagGenerator.GenerateTag(user.Nickname, random, context);
             user.Salt = PasswordHasher.GenerateSalt();
-            user.PasswordHash = PasswordHasher.HashPassword(user.Password, user.Salt);
+            user.PasswordHash = PasswordHasher.HashPassword(user.Password(), user.Salt);
             user.CustomStatus = null;
             user.CreationDate = DateTime.Now;
             user.LastActive = DateTime.Now;
             user.Status = Statuses.Offline;
             user.IsDeleted = false;
-            user.Image = !string.IsNullOrEmpty(user.ImagePath) ? ImageConverter.ImageToBytes(user.ImagePath) : null;
+            user.Image = !string.IsNullOrEmpty(user.ImagePath()) ? ImageConverter.ImageToBytes(user.ImagePath()) : null;
             var result = new UserHandler().Add(user, context);
             Debug.WriteLine(result.Item1);
             return result.Item2;
