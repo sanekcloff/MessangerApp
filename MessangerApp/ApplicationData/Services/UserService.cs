@@ -36,7 +36,7 @@ namespace ApplicationData.Services
             Debug.WriteLine(result.Item1);
             return result.Item2;
         }
-        static Guid GetIdentityId(AppDbContext context)
+        private static Guid GetIdentityId(AppDbContext context)
         {
             var id = Guid.NewGuid();
             while (true)

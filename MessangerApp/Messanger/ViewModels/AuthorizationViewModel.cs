@@ -17,11 +17,11 @@ namespace Messanger.ViewModels
             this.context = context;
             CurrentUser = new();
         }
-
+        // Поле для хранения контекста
         private AppDbContext context;
-
+        // Свойство для работы с User
         public User CurrentUser { get; set; }
-
+        // Метод регистрации нового пользователя
         public void RegistrateUser()
         {
             Debug.WriteLine(UserService.Create(CurrentUser, context));

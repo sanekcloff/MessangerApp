@@ -1,6 +1,7 @@
 ﻿using ApplicationData.Core.Context;
 using ApplicationData.Interfaces;
 using ApplicationData.Models;
+using ApplicationData.Utilities.EntityCheckups;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,10 @@ namespace ApplicationData.Handlers
         {
             try
             {
+                // Проверка на ввод
+                var exception = UserChekup.CheckupUser(entity);
+                if (exception != null) 
+                    throw exception;
                 var user = GetEntity(entity, context);
                 // Вызов метода IsIdentity через явную реализацию
                 if (((IEntityHandler<User>)this).IsIdentity(user))

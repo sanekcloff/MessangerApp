@@ -21,9 +21,9 @@ namespace ApplicationData.Utilities.Generators
         internal static string GenerateSalt()
         {
             byte[] salt = new byte[16];
-            using (var rng = RandomNumberGenerator.Create())
+            using (var rnd = RandomNumberGenerator.Create())
             {
-                rng.GetBytes(salt);
+                rnd.GetBytes(salt);
             }
             return Convert.ToBase64String(salt);
         }
