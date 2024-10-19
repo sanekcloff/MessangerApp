@@ -22,16 +22,5 @@ namespace Messanger.Views
     public partial class AuthorizationView : Window
     {
         AuthorizationViewModel viewModel;
-        public AuthorizationView()
-        {
-            InitializeComponent();
-            viewModel = new AuthorizationViewModel(new AppDbContext());
-            DataContext = viewModel;
-        }
-
-        private void RegisterButton_Click(object sender, RoutedEventArgs e)
-        {
-            viewModel.RegistrateUser();
-        }
     }
 }

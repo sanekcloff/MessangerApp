@@ -33,11 +33,9 @@
 
                 <Button Height="25"
                         Width="75"
-                        Style="{StaticResource RoundedButtonStyle}"/>
-
-                <Button Height="25"
-                        Width="75"
-                        Style="{StaticResource RoundedButtonStyle}"/>
+                        Style="{StaticResource RoundedButtonStyle}"
+                        Content="Enter"
+                        Margin="5,2"/>
 
             </StackPanel>
             
