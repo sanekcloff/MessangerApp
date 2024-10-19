@@ -12,15 +12,11 @@ namespace ApplicationData.Utilities.Converters
     {
         public static byte[]? ImageToBytes(string imagePath)
         {
-            var bytes = File.ReadAllBytes(imagePath);
-            return bytes;
+            return File.ReadAllBytes(imagePath);
         }
         public static Image GetImage(byte[] byteArray)
         {
-            using (var ms = new MemoryStream(byteArray))
-            {
-                return Image.FromStream(ms);
-            }
+            return Image.FromStream(new MemoryStream(byteArray));
         }
     }
 }

@@ -9,7 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Fonts\**" />
+    <EmbeddedResource Remove="Fonts\**" />
+    <None Remove="Fonts\**" />
+    <Page Remove="Fonts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ApplicationData\ApplicationData.csproj" />
+    <ProjectReference Include="..\UI\UI.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,62 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style TargetType="TextBox">
+        <Setter Property="Foreground" Value="{StaticResource TextPassiveColor}"/>
+        <Setter Property="CaretBrush" Value="{StaticResource TextActiveColor}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid>
+
+                        <Border Background="{StaticResource SecondaryColor}" 
+                                BorderBrush="{StaticResource TertiaryColor}" 
+                                BorderThickness="0" 
+                                CornerRadius="15"
+                                Height="30">
+
+                            <Grid>
+
+                                <ScrollViewer x:Name="PART_ContentHost"
+                                              VerticalAlignment="Center"
+                                              Margin="10,0,0,0"/>
+
+                            </Grid>
+                            
+                        </Border>
+
+                        <TextBlock x:Name="Placeholder"
+                                   Text="{TemplateBinding Tag}"
+                                   Foreground="{StaticResource TextPassiveColor}"
+                                   VerticalAlignment="Center"
+                                   IsHitTestVisible="False"
+                                   Opacity="1"
+                                   Padding="10,0,0,0"/>
+                        
+                    </Grid>
+                    
+                    <ControlTemplate.Triggers>
+                        
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter TargetName="Placeholder" Property="Opacity" Value="0"/>
+                        </Trigger>
+                        
+                        <Trigger Property="IsFocused" Value="False">
+                            <Setter TargetName="Placeholder" Property="Opacity" Value="1"/>
+                        </Trigger>
+                        
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Placeholder" Property="Foreground" Value="{StaticResource TextPassiveColor}"/>
+                        </Trigger>
+                        
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        
+        <Setter Property="Tag" Value="Введите текст..."/>
+        <Setter Property="Margin" Value="10"/>
+        
+    </Style>
+
+</ResourceDictionary>
