@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:Messanger"
              StartupUri="Views/AuthorizationView.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/Colors/WindowThemes/LightTheme.xaml"/>
+                <ResourceDictionary Source="Styles/Controls/ButtonStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -4,37 +4,43 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Messanger.Views"
+        xmlns:viewModels="clr-namespace:Messanger.ViewModels"
         mc:Ignorable="d"
-        Title="AuthorizationView" Height="450" Width="300">
+        Title="AuthprizationWindow" Height="450" Width="300"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
     <Grid>
-        <StackPanel Orientation="Vertical"
-                    VerticalAlignment="Center">
-
-            <TextBlock Text="Nickname"
-                       HorizontalAlignment="Center"/>
+        <Border Background="{StaticResource WindowPrimaryColor}"
+                CornerRadius="10">
             
-            <TextBox Name="NicknameTextBox" 
-                     HorizontalContentAlignment="Center"
-                     Text="{Binding CurrentUser.Nickname, UpdateSourceTrigger=PropertyChanged}"/>
+            <StackPanel VerticalAlignment="Center">
             
-            <TextBlock Text="Email"
-                       HorizontalAlignment="Center"/>
+                <TextBlock Text="LOGIN"
+                           Foreground="{StaticResource TextPrimaryColor}"
+                           HorizontalAlignment="Center"/>
 
-            <TextBox Name="EnailTextBox" 
-                     HorizontalContentAlignment="Center"
-                     Text="{Binding CurrentUser.Email, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Width="175"
+                         Margin="2,0,0,10"/>
 
-            <TextBlock Text="Password"
-                       HorizontalAlignment="Center"/>
+                <TextBlock Text="PASSWORD"
+                           Foreground="{StaticResource TextPrimaryColor}"
+                           HorizontalAlignment="Center"/>
+                
+                <TextBox Width="175"
+                         Margin="2,0,0,10"/>
 
-            <TextBox Name="PasswordTextBox" 
-                     HorizontalContentAlignment="Center"
-                     Text="{Binding CurrentUser.Password, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button Height="25"
+                        Width="75"
+                        Style="{StaticResource RoundedButtonStyle}"/>
 
-            <Button x:Name="RegisterButton"
-                    Click="RegisterButton_Click"
-                    Content="Register"/>
+                <Button Height="25"
+                        Width="75"
+                        Style="{StaticResource RoundedButtonStyle}"/>
 
-        </StackPanel>
+            </StackPanel>
+            
+        </Border>
     </Grid>
 </Window>
