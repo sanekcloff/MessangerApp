@@ -1,6 +1,9 @@
 ﻿using ApplicationData.Core.Context;
+using Messanger.Settings;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using System.Configuration;
 using System.Windows;
+using System.Windows.Controls.Primitives;
 
 namespace Messanger
 {

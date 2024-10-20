@@ -1,7 +1,9 @@
 ﻿using ApplicationData.Core.Context;
+using Messanger.Settings;
 using Messanger.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,19 +23,18 @@ namespace Messanger.Views
     /// </summary>
     public partial class AuthorizationView : Window
     {
-        AuthorizationViewModel viewModel;
+        AuthorizationViewModel? viewModel;
+        
+        public AuthorizationView()
+        {
+            InitializeComponent();
+            viewModel = new();
+            DataContext = viewModel;
+        }
 
         private void DragDropBorder_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.ButtonState == MouseButtonState.Pressed)
-            { 
-                DragMove(); 
-            }
-        }
-
-        private void HideButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.WindowState = WindowState.Minimized;
+            if (e.ButtonState == MouseButtonState.Pressed) DragMove();
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

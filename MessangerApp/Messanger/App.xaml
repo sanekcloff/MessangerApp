@@ -6,8 +6,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/UI;component/Styles/Themes/DarkTheme.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/UI;component/Styles/Controls/TextBlock.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/UI;component/Styles/Themes/LightTheme.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/UI;component/Styles/Controls/Label.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/UI;component/Styles/Controls/TextBox.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/UI;component/Styles/Controls/Button.xaml"/>
             </ResourceDictionary.MergedDictionaries>

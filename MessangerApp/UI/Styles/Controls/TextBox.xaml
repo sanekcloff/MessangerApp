@@ -2,15 +2,17 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style TargetType="TextBox">
-        <Setter Property="Foreground" Value="{StaticResource TextPassiveColor}"/>
-        <Setter Property="CaretBrush" Value="{StaticResource TextActiveColor}"/>
+        <Setter Property="FontFamily" Value="{DynamicResource PrimaryFont}"/>
+        <Setter Property="Tag" Value="Enter text..."/>
+        <Setter Property="Foreground" Value="{DynamicResource TextPassiveColor}"/>
+        <Setter Property="CaretBrush" Value="{DynamicResource TextActiveColor}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
                     <Grid>
 
-                        <Border Background="{StaticResource SecondaryColor}" 
-                                BorderBrush="{StaticResource TertiaryColor}" 
+                        <Border Background="{DynamicResource SecondaryColor}" 
+                                BorderBrush="{DynamicResource TertiaryColor}" 
                                 BorderThickness="0" 
                                 CornerRadius="15"
                                 Height="30">
@@ -27,7 +29,7 @@
 
                         <TextBlock x:Name="Placeholder"
                                    Text="{TemplateBinding Tag}"
-                                   Foreground="{StaticResource TextPassiveColor}"
+                                   Foreground="{DynamicResource TextPassiveColor}"
                                    VerticalAlignment="Center"
                                    IsHitTestVisible="False"
                                    Opacity="1"
@@ -46,7 +48,7 @@
                         </Trigger>
                         
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="Placeholder" Property="Foreground" Value="{StaticResource TextPassiveColor}"/>
+                            <Setter TargetName="Placeholder" Property="Foreground" Value="{DynamicResource TextPassiveColor}"/>
                         </Trigger>
                         
                     </ControlTemplate.Triggers>
@@ -54,8 +56,6 @@
             </Setter.Value>
         </Setter>
         
-        <Setter Property="Tag" Value="Введите текст..."/>
-        <Setter Property="Margin" Value="10"/>
         
     </Style>
 

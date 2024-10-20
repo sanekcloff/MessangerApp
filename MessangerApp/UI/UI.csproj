@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Icons\Controls\Buttons\ThemeButton\DarkTheme.png" />
+    <None Remove="Assets\Icons\Controls\Buttons\ThemeButton\DarkTheme_Focused.png" />
+    <None Remove="Assets\Icons\Controls\Buttons\ThemeButton\DarkTheme_Pressed.png" />
+    <None Remove="Assets\Icons\Controls\Buttons\ThemeButton\LightTheme.png" />
+    <None Remove="Assets\Icons\Controls\Buttons\ThemeButton\LightTheme_Focused.png" />
+    <None Remove="Assets\Icons\Controls\Buttons\ThemeButton\LightTheme_Pressed.png" />
     <None Remove="Assets\Icons\Logos\Icon.ico" />
     <None Remove="Assets\Icons\Logos\LogoDark.png" />
     <None Remove="Assets\Icons\Logos\LogoLight.png" />
@@ -16,16 +22,36 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Assets\Icons\Controls\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Assets\Backgrounds\retrowave_background.png" />
-    <Resource Include="Assets\Icons\Logos\Icon.ico" />
-    <Resource Include="Assets\Icons\Logos\LogoDark.png" />
-    <Resource Include="Assets\Icons\Logos\LogoLight.png" />
+    <Resource Include="Assets\Icons\Controls\Buttons\ThemeButton\DarkTheme.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\Controls\Buttons\ThemeButton\DarkTheme_Focused.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\Controls\Buttons\ThemeButton\DarkTheme_Pressed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\Controls\Buttons\ThemeButton\LightTheme.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\Controls\Buttons\ThemeButton\LightTheme_Focused.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\Controls\Buttons\ThemeButton\LightTheme_Pressed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\Logos\Icon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\Logos\LogoDark.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\Logos\LogoLight.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Fonts\Monocraft.otf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
 

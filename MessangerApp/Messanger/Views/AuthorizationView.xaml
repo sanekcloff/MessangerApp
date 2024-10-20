@@ -15,9 +15,12 @@
 
     <Border Grid.Column="0"
             CornerRadius="30"
-            Background="{StaticResource BackgroundImage}"
+            Background="{DynamicResource BackgroundImage}"
             x:Name="DragDropBorder"
-            MouseLeftButtonDown="DragDropBorder_MouseLeftButtonDown">
+            MouseLeftButtonDown="DragDropBorder_MouseLeftButtonDown"
+            Panel.ZIndex="0"
+            BorderBrush="Transparent"
+            BorderThickness="0">
 
         <Grid>
 
@@ -26,52 +29,48 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Orientation="Horizontal"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Top"
-                        Grid.ColumnSpan="2">
-
-                <Button Style="{StaticResource HideButtonStyle}"
-                        Content="➖"
-                        x:Name="HideButton"
-                        Click="HideButton_Click"/>
-                <Button Style="{StaticResource CloseButtonStyle}"
-                        Content="✖"
-                        x:Name="CloseButton"
-                        Click="CloseButton_Click"/>
-
-            </StackPanel>
+            <Button Grid.Column="0"
+                    Panel.ZIndex="1"
+                    Style="{DynamicResource ThemeButtonStyle}"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Command="{Binding ChangeThemeCommand}"/>
 
             <Border CornerRadius="30,0,0,30"
-                    Background="{StaticResource PrimaryColor}"
+                    Background="{DynamicResource PrimaryColor}"
                     Opacity="1">
 
                 <StackPanel Orientation="Vertical"
                             VerticalAlignment="Center"
                             Margin="10">
 
-                    <Image Source="{StaticResource Logo}"
+                    <Image Source="{DynamicResource Logo}"
                            Width="100"
                            Margin="0,0,0,10"/>
 
-                    <TextBlock Text="EMAIL"
-                               HorizontalAlignment="Center"/>
+                    <Label Content="EMAIL"
+                           HorizontalAlignment="Center"/>
 
-                    <TextBox Tag="Введите email"/>
-                    
-                    <TextBlock Text="PASSWORD"
-                               HorizontalAlignment="Center"/>
-                    
-                    <TextBox Tag="Введите пароль"/>
+                    <TextBox Tag="Enter email"
+                             Margin="2,2,2,15"/>
 
-                    <Button Content="ENTER"
-                            Style="{StaticResource RoundedButtonStyle}"/>
+                    <Label Content="PASSWORD"
+                           HorizontalAlignment="Center"/>
+
+                    <TextBox Tag="Enter password"
+                             Margin="2,2,2,15"/>
+
+                    <Button Content="LOGIN"
+                            Style="{DynamicResource RoundedButtonStyle}"/>
                     
                     <Button Content="REGISTER"
-                            Style="{StaticResource TransparentButtonStyle}"
+                            Style="{DynamicResource TranparentButtonStyle}"/>
+
+                    <Button Content="EXIT"
+                            Click="CloseButton_Click"
                             FontSize="10"
-                            Height="12"
-                            Width="60"/>
+                            Height="20"
+                            Style="{DynamicResource TranparentButtonStyle}"/>
 
                 </StackPanel>
                 

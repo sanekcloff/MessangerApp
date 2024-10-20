@@ -2,43 +2,53 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
     <!--#region Fonts-->
+    
     <FontFamily x:Key="PrimaryFont">pack://application:,,,/UI;component/Fonts/#Monocraft</FontFamily>
+    
     <!--#endregion-->
 
     <!--#region Colors-->
-    <SolidColorBrush x:Key="PrimaryColor" Color="#36393F"/>
-    <SolidColorBrush x:Key="SecondaryColor" Color="#2F3136"/>
-    <SolidColorBrush x:Key="TertiaryColor" Color="#202225"/>
+    
+    <SolidColorBrush x:Key="PrimaryColor" Color="#ebebec"/>
+    <SolidColorBrush x:Key="SecondaryColor" Color="#c3c4c5"/>
+    <SolidColorBrush x:Key="TertiaryColor" Color="#afb0b2"/>
     <LinearGradientBrush x:Key="AccentColor" StartPoint="0,0" EndPoint="1,0">
-        <GradientStop Color="#9332cb" Offset="0"/>
-        <GradientStop Color="#734bd6" Offset="1"/>
+        <GradientStop Color="#0097ff" Offset="0"/>
+        <GradientStop Color="#0058ff" Offset="1"/>
     </LinearGradientBrush>
     <LinearGradientBrush x:Key="WindowButtonColor" StartPoint="0,0" EndPoint="1,0">
         <GradientStop Color="#FFCB3232" Offset="0"/>
         <GradientStop Color="#FFD64B4B" Offset="1"/>
     </LinearGradientBrush>
-    <SolidColorBrush x:Key="TextActiveColor" Color="#e9e9e9"/>
+    
+    <SolidColorBrush x:Key="TextActiveColor" Color="#5d5d5d"/>
     <SolidColorBrush x:Key="TextActiveColorAlt" Color="#e9e9e9"/>
-    <SolidColorBrush x:Key="TextPassiveColor" Color="#b1b1b1"/>
+    <SolidColorBrush x:Key="TextPassiveColor" Color="#171717"/>
+    
     <!--#endregion-->
     
     <!--#region Images-->
+    
     <ImageBrush x:Key="Theme" 
-            ImageSource="pack://application:,,,/UI;component/Assets/Icons/Controls/Buttons/ThemeButton/LightTheme.png"
-            Stretch="UniformToFill"/>
+        ImageSource="pack://application:,,,/UI;component/Assets/Icons/Controls/Buttons/ThemeButton/DarkTheme.png"
+        Stretch="UniformToFill"/>
     <ImageBrush x:Key="Theme_Focused" 
-                ImageSource="pack://application:,,,/UI;component/Assets/Icons/Controls/Buttons/ThemeButton/LightTheme_Focused.png"
-                Stretch="UniformToFill"/>
+            ImageSource="pack://application:,,,/UI;component/Assets/Icons/Controls/Buttons/ThemeButton/DarkTheme_Focused.png"
+            Stretch="UniformToFill"/>
     <ImageBrush x:Key="Theme_Pressed" 
-                ImageSource="pack://application:,,,/UI;component/Assets/Icons/Controls/Buttons/ThemeButton/LightTheme_Pressed.png"
-                Stretch="UniformToFill"/>
+            ImageSource="pack://application:,,,/UI;component/Assets/Icons/Controls/Buttons/ThemeButton/DarkTheme_Pressed.png"
+            Stretch="UniformToFill"/>
+    
     <ImageBrush x:Key="BackgroundImage" 
                 ImageSource="pack://application:,,,/UI;component/Assets/Backgrounds/retrowave_background.png"
                 Stretch="UniformToFill"/>
+    
     <BitmapImage x:Key="Logo"
-                 UriSource="pack://application:,,,/UI;component/Assets/Icons/Logos/LogoDark.png"/>
+                 UriSource="pack://application:,,,/UI;component/Assets/Icons/Logos/LogoLight.png"/>
+    
     <BitmapImage x:Key="Icon"
              UriSource="pack://application:,,,/UI;component/Assets/Icons/Logos/Icon.ico"/>
+    
     <!--#endregion-->
     
 </ResourceDictionary>
