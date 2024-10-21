@@ -11,10 +11,11 @@
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
-        Icon="{StaticResource Icon}">
+        Icon="{StaticResource Icon}"
+        ResizeMode="NoResize">
 
     <Border Grid.Column="0"
-            CornerRadius="30"
+            CornerRadius="35,30,30,35"
             Background="{DynamicResource BackgroundImage}"
             x:Name="DragDropBorder"
             MouseLeftButtonDown="DragDropBorder_MouseLeftButtonDown"
@@ -52,19 +53,23 @@
                            HorizontalAlignment="Center"/>
 
                     <TextBox Tag="Enter email"
-                             Margin="2,2,2,15"/>
+                             Margin="2,2,2,15"
+                             Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <Label Content="PASSWORD"
                            HorizontalAlignment="Center"/>
 
                     <TextBox Tag="Enter password"
-                             Margin="2,2,2,15"/>
+                             Margin="2,2,2,15"
+                             Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <Button Content="LOGIN"
-                            Style="{DynamicResource RoundedButtonStyle}"/>
+                            Style="{DynamicResource RoundedButtonStyle}"
+                            Command="{Binding LoginCommand, UpdateSourceTrigger=PropertyChanged}"/>
                     
                     <Button Content="REGISTER"
-                            Style="{DynamicResource TranparentButtonStyle}"/>
+                            Style="{DynamicResource TranparentButtonStyle}"
+                            Command="{Binding RegisterCommand, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <Button Content="EXIT"
                             Click="CloseButton_Click"

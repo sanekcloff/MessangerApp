@@ -2,51 +2,20 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
 
-    <Style x:Key="HideButtonStyle" TargetType="Button">
-        <Setter Property="Height" Value="30"/>
-        <Setter Property="Width" Value="30"/>
-        <Setter Property="FontFamily" Value="{DynamicResource PrimaryFont}"/>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{StaticResource TextPassiveColor}"/>
-        <Setter Property="Margin" Value="0"/>
-        <Setter Property="FontSize" Value="20"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Border x:Name="border">
-                        <ContentPresenter HorizontalAlignment="Center" 
-                                          VerticalAlignment="Center"
-                                          Margin="0,15,0,0"/>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="FontWeight" Value="Bold"/>
-                <Setter Property="Foreground" Value="{DynamicResource TextActiveColor}"/>
-            </Trigger>
-            <Trigger Property="IsPressed" Value="True">
-                <Setter Property="FontWeight" Value="Bold"/>
-                <Setter Property="Foreground" Value="{DynamicResource WindowButtonColor}"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-
-    <Style x:Key="CloseButtonStyle" TargetType="Button">
-        <Setter Property="Height" Value="30"/>
-        <Setter Property="Width" Value="30"/>
+        <Style x:Key="WindowStateButtonStyle" TargetType="Button">
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Width" Value="25"/>
         <Setter Property="FontFamily" Value="{DynamicResource PrimaryFont}"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{DynamicResource TextPassiveColor}"/>
-        <Setter Property="Margin" Value="2,10,10,0"/>
-        <Setter Property="FontSize" Value="20"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border>
-                        <ContentPresenter HorizontalAlignment="Center" 
-                                          VerticalAlignment="Center"/>
+                    <Border Background="{TemplateBinding Background}"
+                            Padding="{TemplateBinding Padding}">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          TextBlock.FontSize="18"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -54,11 +23,13 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="FontWeight" Value="Bold"/>
-                <Setter Property="Foreground" Value="{DynamicResource TextActiveColor}"/>
+                <Setter Property="Background" Value="{DynamicResource WindowStateButtonColor_Focused}"/>
+                <Setter Property="Foreground" Value="{DynamicResource TextActiveColorAlt}"/>
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="FontWeight" Value="Bold"/>
-                <Setter Property="Foreground" Value="{DynamicResource WindowButtonColor}"/>
+                <Setter Property="Background" Value="{DynamicResource WindowStateButtonColor_Pressed}"/>
+                <Setter Property="Foreground" Value="{DynamicResource TextActiveColorAlt}"/>
             </Trigger>
         </Style.Triggers>
     </Style>

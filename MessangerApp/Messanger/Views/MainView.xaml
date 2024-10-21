@@ -5,8 +5,68 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Messanger.Views"
         mc:Ignorable="d"
-        Title="MainView" Height="450" Width="800">
+        Title="MainView" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None">
+    
     <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         
+        <Border Background="{DynamicResource TertiaryColor}"
+                x:Name="DragBorder"
+                MouseLeftButtonDown="DragBorder_MouseLeftButtonDown">
+            
+            <Grid>
+
+                <StackPanel Orientation="Horizontal">
+
+                    <Rectangle Fill="{DynamicResource Offline}"
+                               Width="25"/>
+
+                    <Label Margin="10,0,0,0"
+                           Content="User"
+                           VerticalAlignment="Center"/>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right">
+
+                    <Button Style="{DynamicResource WindowStateButtonStyle}"
+                            Content="—"
+                            Padding="1,5,1,0"
+                            x:Name="HideButton"
+                            Click="HideButton_Click"/>
+                    
+                    <Button Style="{DynamicResource WindowStateButtonStyle}"
+                            Content="▢"
+                            x:Name="MaximizeButton"
+                            Click="MaximizeButton_Click"/>
+                    
+                    <Button Style="{DynamicResource WindowStateButtonStyle}"
+                            Content="×"
+                            x:Name="CloseButton"
+                            Click="CloseButton_Click"/>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+
+        <Border Background="{DynamicResource PrimaryColor}"
+                Grid.Row="1">
+
+            
+
+        </Border>
+
     </Grid>
+    
 </Window>

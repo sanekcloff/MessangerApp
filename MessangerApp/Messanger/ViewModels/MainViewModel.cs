@@ -8,5 +8,6 @@ namespace Messanger.ViewModels
 {
     public class MainViewModel
     {
+
     }
 }

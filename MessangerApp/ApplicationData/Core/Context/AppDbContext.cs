@@ -8,16 +8,20 @@ namespace ApplicationData.Core.Context
 {
     public class AppDbContext : DbContext
     {
+        private static string connectionString = string.Empty; 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(getSqliteConnect());
+            optionsBuilder.UseSqlite(connectionString);
             optionsBuilder.UseLazyLoadingProxies();
         }
-
-        string getSqliteConnect()
+        public static void SetSqliteConnect()
         {
             var dir = Directory.GetParent(Environment.CurrentDirectory)?.Parent?.Parent?.Parent;
-            return $@"Data source={dir}\ApplicationData\Core\Database\MessangerDB.db";
+            connectionString = $@"Data source={dir}\ApplicationData\Core\Database\MessangerDB.db";
+        }
+        public static void SetSqliteConnect(string path)
+        {
+            connectionString = path.Insert(0,"Data source = ");
         }
 
         public DbSet<User> Users { get; set; }

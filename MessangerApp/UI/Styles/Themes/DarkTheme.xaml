@@ -6,16 +6,20 @@
     <!--#endregion-->
 
     <!--#region Colors-->
-    <SolidColorBrush x:Key="PrimaryColor" Color="#36393F"/>
+    <SolidColorBrush x:Key="PrimaryColor" Color="#42454c"/>
     <SolidColorBrush x:Key="SecondaryColor" Color="#2F3136"/>
     <SolidColorBrush x:Key="TertiaryColor" Color="#202225"/>
     <LinearGradientBrush x:Key="AccentColor" StartPoint="0,0" EndPoint="1,0">
         <GradientStop Color="#9332cb" Offset="0"/>
         <GradientStop Color="#734bd6" Offset="1"/>
     </LinearGradientBrush>
-    <LinearGradientBrush x:Key="WindowButtonColor" StartPoint="0,0" EndPoint="1,0">
-        <GradientStop Color="#FFCB3232" Offset="0"/>
-        <GradientStop Color="#FFD64B4B" Offset="1"/>
+    <LinearGradientBrush x:Key="WindowStateButtonColor_Focused" StartPoint="0,0" EndPoint="1,0">
+        <GradientStop Color="#be3b25" Offset="0"/>
+        <GradientStop Color="#942E1D" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="WindowStateButtonColor_Pressed" StartPoint="0,0" EndPoint="1,0">
+        <GradientStop Color="#8e2d1d" Offset="0"/>
+        <GradientStop Color="#6b291e" Offset="1"/>
     </LinearGradientBrush>
     <SolidColorBrush x:Key="TextActiveColor" Color="#e9e9e9"/>
     <SolidColorBrush x:Key="TextActiveColorAlt" Color="#e9e9e9"/>
