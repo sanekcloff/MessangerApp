@@ -12,6 +12,7 @@
     <SolidColorBrush x:Key="PrimaryColor" Color="#ebebec"/>
     <SolidColorBrush x:Key="SecondaryColor" Color="#c3c4c5"/>
     <SolidColorBrush x:Key="TertiaryColor" Color="#afb0b2"/>
+    <SolidColorBrush x:Key="QuaternaryColor" Color="#cfd0d1"/>
     <LinearGradientBrush x:Key="AccentColor" StartPoint="0,0" EndPoint="1,0">
         <GradientStop Color="#0097ff" Offset="0"/>
         <GradientStop Color="#0058ff" Offset="1"/>

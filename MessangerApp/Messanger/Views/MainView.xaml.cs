@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ApplicationData.Models;
+using Messanger.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,12 @@ namespace Messanger.Views
     /// </summary>
     public partial class MainView : Window
     {
-        public MainView()
+        MainViewModel viewModel;
+        public MainView(User currentUser)
         {
             InitializeComponent();
+            viewModel = new MainViewModel(currentUser);
+            DataContext = viewModel;
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

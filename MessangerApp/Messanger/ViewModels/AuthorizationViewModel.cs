@@ -4,6 +4,7 @@ using ApplicationData.Services;
 using Messanger.Settings;
 using Messanger.Settings.Utilities;
 using Messanger.Utilities;
+using Messanger.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +19,12 @@ namespace Messanger.ViewModels
 {
     public class AuthorizationViewModel : ViewModelBase
     {
+        public AuthorizationViewModel(Window window)
+        {
+            currentWindow = window;
+        }
         #region Feilds & Properties
+        private static Window? currentWindow;
         private string login = string.Empty; 
         private string password = string.Empty;
         public string Login { get => login; set => Set(ref login, value, nameof(Login)); }
@@ -32,7 +38,8 @@ namespace Messanger.ViewModels
         });
         public RelayCommand LoginCommand { get; } = new(o =>
         {
-            
+            new MainView(new AppDbContext().Users.FirstOrDefault()!).Show();
+            currentWindow!.Close();
         });
         public RelayCommand RegisterCommand { get; } = new(o =>
         {

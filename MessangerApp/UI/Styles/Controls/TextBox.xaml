@@ -32,18 +32,14 @@
                                    Foreground="{DynamicResource TextPassiveColor}"
                                    VerticalAlignment="Center"
                                    IsHitTestVisible="False"
-                                   Opacity="1"
+                                   Opacity="0"
                                    Padding="10,0,0,0"/>
                         
                     </Grid>
-                    
+
                     <ControlTemplate.Triggers>
-                        
-                        <Trigger Property="IsFocused" Value="True">
-                            <Setter TargetName="Placeholder" Property="Opacity" Value="0"/>
-                        </Trigger>
-                        
-                        <Trigger Property="IsFocused" Value="False">
+
+                        <Trigger Property="Text" Value="">
                             <Setter TargetName="Placeholder" Property="Opacity" Value="1"/>
                         </Trigger>
                         

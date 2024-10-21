@@ -1,0 +1,48 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!--#region Contacts-->
+    <Style x:Key="ContactsListViewStyle" TargetType="ListView">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="FontFamily" Value="{DynamicResource PrimaryFont}"/>
+    </Style>
+
+    <Style x:Key="ContactStyle" TargetType="ListViewItem">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListViewItem">
+                    <Border Background="{TemplateBinding Background}" Margin="5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Ellipse Width="40"
+                                     Height="40"
+                                     Margin="5"
+                                     Fill="{DynamicResource BackgroundImage}"
+                                     Stroke="{DynamicResource Offline}"
+                                     StrokeThickness="2"/>
+
+                            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="4">
+
+                                <TextBlock Text="Username#0000" FontFamily="{DynamicResource PrimaryFont}"/>
+
+                                <TextBlock Text="Custom status..." FontFamily="{DynamicResource PrimaryFont}" FontSize="8"/>
+                                
+                                <TextBlock Text="Last message..." FontFamily="{DynamicResource PrimaryFont}" FontSize="8"/>
+
+                            </StackPanel>
+
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

@@ -26,10 +26,10 @@
 
                 <StackPanel Orientation="Horizontal">
 
-                    <Rectangle Fill="{DynamicResource Offline}"
-                               Width="25"/>
+                    <Image Source="{DynamicResource Logo}"
+                           Margin="5,2,2,2"/>
 
-                    <Label Margin="10,0,0,0"
+                    <Label Margin="0,0,0,0"
                            Content="User"
                            VerticalAlignment="Center"/>
 
@@ -63,7 +63,86 @@
         <Border Background="{DynamicResource PrimaryColor}"
                 Grid.Row="1">
 
-            
+            <Grid>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <!--Левая часть-->
+                <Border Background="{DynamicResource QuaternaryColor}">
+
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBox Margin="10"
+                                 Tag="Search..."
+                                 Grid.Row="0"/>
+
+                        <ListView Grid.Row="1"
+                                  Style="{DynamicResource ContactsListViewStyle}"
+                                  ItemContainerStyle="{DynamicResource ContactStyle}">
+                            <ListViewItem>Text</ListViewItem>
+                            <ListViewItem>Text</ListViewItem>
+                            <ListViewItem>Text</ListViewItem>
+                        </ListView>
+
+                        <Border Grid.Row="2"
+                                Background="{DynamicResource SecondaryColor}">
+
+                            <Grid>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="51"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Ellipse Width="40"
+                                         Height="40"
+                                         Margin="5"
+                                         Fill="{Binding CurrentUser.Color}"
+                                         Stroke="{DynamicResource Offline}"
+                                         StrokeThickness="2"/>
+
+                                <StackPanel Grid.Column="1"
+                                            VerticalAlignment="Center"
+                                            Margin="4">
+
+                                    <TextBlock Text="{Binding CurrentUser.Username, UpdateSourceTrigger=PropertyChanged}" 
+                                               FontFamily="{DynamicResource PrimaryFont}"/>
+
+                                    <TextBlock Text="Custom status..."
+                                               FontFamily="{DynamicResource PrimaryFont}"
+                                               FontSize="8"/>
+
+                                </StackPanel>
+
+                            </Grid>
+
+                        </Border>
+
+                    </Grid>
+
+                </Border>
+                
+                <!--Правая часть-->
+                <Grid Grid.Column="1">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+
+                </Grid>
+                
+            </Grid>
 
         </Border>
 

@@ -11,6 +11,7 @@
                 <ResourceDictionary Source="pack://application:,,,/UI;component/Styles/Controls/Label.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/UI;component/Styles/Controls/TextBox.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/UI;component/Styles/Controls/Button.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/UI;component/Styles/Controls/ListView.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
