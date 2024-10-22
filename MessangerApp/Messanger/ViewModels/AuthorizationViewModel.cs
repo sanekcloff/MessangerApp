@@ -21,10 +21,26 @@ namespace Messanger.ViewModels
     {
         public AuthorizationViewModel(Window window, AppDbContext context)
         {
+            // Properties
             currentWindow = window;
             this.context = context;
             email = null!;
             password = string.Empty;
+
+            // Commands
+            ChangeThemeCommand = new(o =>
+            {
+                ThemeConfigurator.ChangeTheme();
+            });
+            RegisterCommand = new(o =>
+            {
+                new RegistrationView(context).ShowDialog();
+            });
+            LoginCommand = new(o => 
+            {
+                new MainView(UserService.Login(email, password, context)).Show();
+                currentWindow.Close();
+            });
         }
         #region Feilds & Properties
         private AppDbContext context;
@@ -36,20 +52,11 @@ namespace Messanger.ViewModels
         #endregion
 
         #region Commands
-        public RelayCommand ChangeThemeCommand { get; } = new(o => 
-        {
-            ThemeConfigurator.ChangeTheme();
-        });
-        public RelayCommand LoginCommand { get; } = new(o =>
-        {
-            var email = Email;
-            new MainView(UserService.Login(email,password, context)).Show();
-            currentWindow.Close();
-        });
-        public RelayCommand RegisterCommand { get; } = new(o =>
-        {
-            new RegistrationView(new AppDbContext()).ShowDialog();
-        });
+        public RelayCommand ChangeThemeCommand { get; } 
+        public RelayCommand LoginCommand { get; } 
+        public RelayCommand RegisterCommand { get; } 
         #endregion
+
+
     }
 }

@@ -53,7 +53,7 @@
 
                     <TextBox Tag="Enter email"
                              Margin="2,2,2,15"
-                             Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"/>
+                             Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <Label Content="PASSWORD"
                            HorizontalAlignment="Center"/>

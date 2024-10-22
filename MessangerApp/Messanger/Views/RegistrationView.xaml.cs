@@ -25,9 +25,13 @@ namespace Messanger.Views
         public RegistrationView(AppDbContext context)
         {
             InitializeComponent();
-            viewModel = new(context);
+            viewModel = new(this,context);
             DataContext = viewModel;
         }
 
+        private void DragBorder_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed) DragMove();
+        }
     }
 }

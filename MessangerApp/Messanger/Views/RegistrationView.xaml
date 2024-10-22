@@ -14,24 +14,49 @@
     <Grid>
 
         <Border Background="{DynamicResource PrimaryColor}"
-                CornerRadius="30">
+                CornerRadius="30"
+                x:Name="DragBorder"
+                MouseLeftButtonDown="DragBorder_MouseLeftButtonDown"
+                BorderBrush="{DynamicResource AccentColor}"
+                BorderThickness="0,0,0,2">
 
             <StackPanel Orientation="Vertical"
                         VerticalAlignment="Center">
 
-                <Image x:Name="AvatartImage"
-                       Height="150"
-                       Width="150"/>
+                <Ellipse Width="150"
+                        Height="150"
+                         Fill="{DynamicResource SecondaryColor}"
+                         x:Name="Avatar"/>
+
                 <Button Style="{DynamicResource TranparentButtonStyle}"
-                        Content="Upload"/>
+                        Content="Upload Image"
+                        Command="{Binding UploadImage,UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBox Text="{Binding Nickname, UpdateSourceTrigger=PropertyChanged}"
+                         Tag="Enter nickname..."
+                         Width="240"
+                         Margin="5"/>
+
                 <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
-                         Tag="Enter email..."/>
+                         Tag="Enter email..."
+                         Width="240"
+                         Margin="5"/>
+                
                 <TextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"
-                         Tag="Enter password..."/>
+                         Tag="Enter password..."
+                         Width="240"
+                         Margin="5"/>
+                
                 <Button Style="{DynamicResource RoundedButtonStyle}"
-                        Content="Зарегестрироваться"
+                        Content="REGISTER"
                         Margin="10"
-                        Command="{Binding Re}"/>
+                        Command="{Binding Registration}"/>
+                
+                <Button Style="{DynamicResource TranparentButtonStyle}"
+                        Content="GO BACK"
+                        Margin="2"
+                        FontSize="10"
+                        Command="{Binding Leave}"/>
 
             </StackPanel>
             

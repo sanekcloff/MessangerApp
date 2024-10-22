@@ -6,14 +6,16 @@
         <Setter Property="Tag" Value="Enter text..."/>
         <Setter Property="Foreground" Value="{DynamicResource TextPassiveColor}"/>
         <Setter Property="CaretBrush" Value="{DynamicResource TextActiveColor}"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
                     <Grid>
 
                         <Border Background="{DynamicResource SecondaryColor}" 
-                                BorderBrush="{DynamicResource TertiaryColor}" 
-                                BorderThickness="0" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
                                 CornerRadius="15"
                                 Height="30">
 
@@ -39,20 +41,30 @@
 
                     <ControlTemplate.Triggers>
 
-                        <Trigger Property="Text" Value="">
-                            <Setter TargetName="Placeholder" Property="Opacity" Value="1"/>
-                        </Trigger>
-                        
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="Placeholder" Property="Foreground" Value="{DynamicResource TextPassiveColor}"/>
                         </Trigger>
-                        
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsFocused" Value="False"/>
+                                <Condition Property="Text" Value=""/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter TargetName="Placeholder" Property="Opacity" Value="1"/>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        
-        
+        <Style.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource AccentColor}"/>
+                <Setter Property="BorderThickness" Value="0,0,0,2"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>

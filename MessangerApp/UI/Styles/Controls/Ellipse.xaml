@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="UploadedImage" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource Image}"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Value="">
+                <Setter Property="Background" Value="{DynamicResource SecondaryColor}"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+    
+    <ImageBrush x:Key="Image" ImageSource="A:\Artstation\Профиль\Logo_sanekcl.png"/>
+    
+</ResourceDictionary>

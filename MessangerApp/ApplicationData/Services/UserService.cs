@@ -35,22 +35,23 @@ namespace ApplicationData.Services
             Debug.WriteLine("Учётная запись с такими данными не найдена");
             return null!;
         }
-        public static string Create(User user, AppDbContext context)
+        public static string Create(string nickname,string email, string password, string imagePath, AppDbContext context)
         {
+            var user = new User() { Email = email, Nickname = nickname };
             // Автоматически генерируются
             var random = new Random();
             user.Id = GetIdentityId(context);
             user.Color = ColorGenerator.GenerateHexColor(random);
             user.Tag = TagGenerator.GenerateTag(user.Nickname, random, context);
             user.Salt = PasswordHasher.GenerateSalt();
-            user.PasswordHash = PasswordHasher.HashPassword(user.Password(), user.Salt);
+            user.PasswordHash = PasswordHasher.HashPassword(password, user.Salt);
             user.CustomStatus = null;
             user.CreationDate = DateTime.Now;
             user.LastActive = DateTime.Now;
             user.Status = Statuses.Offline;
             user.IsDeleted = false;
             user.IsOnline = false;
-            user.Image = !string.IsNullOrEmpty(user.ImagePath()) ? ImageConverter.ImageToBytes(user.ImagePath()) : null;
+            user.Image = !string.IsNullOrEmpty(imagePath) ? ImageConverter.ImageToBytes(imagePath) : null;
             var result = new UserHandler().Add(user, context);
             Debug.WriteLine(result.Item1);
             return result.Item2;
