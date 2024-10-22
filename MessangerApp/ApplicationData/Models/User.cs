@@ -31,6 +31,7 @@ namespace ApplicationData.Models
         public Statuses Status { get; set; }
 
         public bool IsDeleted { get; set; }
+        public bool IsOnline { get; set; }
 
         public virtual ICollection<Chat> Chats { get; set; } = null!;
 

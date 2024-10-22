@@ -5,6 +5,7 @@ using ApplicationData.Models;
 using ApplicationData.Utilities.Converters;
 using ApplicationData.Utilities.Enums;
 using ApplicationData.Utilities.Generators;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.Json;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,23 @@ namespace ApplicationData.Services
 {
     public static class UserService
     {
+        public static User Login(string email, string password, AppDbContext context)
+        {
+            var salts = context.Users.Select(x => x.Salt).ToList();
+            string hashedPassword;
+            foreach (var salt in salts)
+            {
+                hashedPassword = PasswordHasher.HashPassword(password, salt);
+                var currentUser = context.Users.Where(u => u.Email == email & u.PasswordHash == hashedPassword).FirstOrDefault();
+                if (currentUser!=null) 
+                {
+                    Debug.WriteLine("Учётная запись найдена");
+                    return currentUser;
+                }
+            }
+            Debug.WriteLine("Учётная запись с такими данными не найдена");
+            return null!;
+        }
         public static string Create(User user, AppDbContext context)
         {
             // Автоматически генерируются
@@ -31,6 +49,7 @@ namespace ApplicationData.Services
             user.LastActive = DateTime.Now;
             user.Status = Statuses.Offline;
             user.IsDeleted = false;
+            user.IsOnline = false;
             user.Image = !string.IsNullOrEmpty(user.ImagePath()) ? ImageConverter.ImageToBytes(user.ImagePath()) : null;
             var result = new UserHandler().Add(user, context);
             Debug.WriteLine(result.Item1);

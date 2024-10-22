@@ -19,20 +19,22 @@ namespace Messanger.Settings.Utilities
         const string DARK_THEME = "pack://application:,,,/UI;component/Styles/Themes/DarkTheme.xaml";
         private static string SetResources(string theme)
         {
-            // Директории 
-            var labelStyles = new ResourceDictionary() { Source = new Uri("pack://application:,,,/UI;component/Styles/Controls/Label.xaml") };
-            var textBoxStyles = new ResourceDictionary() { Source = new Uri("pack://application:,,,/UI;component/Styles/Controls/TextBox.xaml") };
-            var buttonStyles = new ResourceDictionary() { Source = new Uri("pack://application:,,,/UI;component/Styles/Controls/Button.xaml") };
-            var listViewStyles = new ResourceDictionary() { Source = new Uri("pack://application:,,,/UI;component/Styles/Controls/ListView.xaml") };
-            var statusesStyles = new ResourceDictionary() { Source = new Uri("pack://application:,,,/UI;component/Styles/Themes/Statuses.xaml") };
+            var styles = new List<ResourceDictionary>()
+            { 
+                // Директории 
+                new ResourceDictionary() { Source = new Uri("pack://application:,,,/UI;component/Styles/Controls/Label.xaml") },
+                new ResourceDictionary() { Source = new Uri("pack://application:,,,/UI;component/Styles/Controls/TextBox.xaml") },
+                new ResourceDictionary() { Source = new Uri("pack://application:,,,/UI;component/Styles/Controls/Button.xaml") },
+                new ResourceDictionary() { Source = new Uri("pack://application:,,,/UI;component/Styles/Controls/ListView.xaml") },
+                new ResourceDictionary() { Source = new Uri("pack://application:,,,/UI;component/Styles/Themes/Statuses.xaml") }
+            };
             // Очистка текущих ресурсов
             Application.Current.Resources.Clear();
             // Загрузка новых
-            Application.Current.Resources.MergedDictionaries.Add(labelStyles);
-            Application.Current.Resources.MergedDictionaries.Add(textBoxStyles);
-            Application.Current.Resources.MergedDictionaries.Add(buttonStyles);
-            Application.Current.Resources.MergedDictionaries.Add(listViewStyles);
-            Application.Current.Resources.MergedDictionaries.Add(statusesStyles);
+            foreach (var style in styles) 
+            {
+                Application.Current.Resources.MergedDictionaries.Add(style);
+            }
             // Исходя из параметра Theme в App.config выбираем тему
             switch (theme.ToLower())
             {

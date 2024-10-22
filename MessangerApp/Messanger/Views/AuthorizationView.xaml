@@ -6,13 +6,12 @@
         xmlns:local="clr-namespace:Messanger.Views"
         xmlns:viewModels="clr-namespace:Messanger.ViewModels"
         mc:Ignorable="d"
-        Title="AuthprizationWindow" Height="450" Width="700"
+        Title="Talker Auth" Height="450" Width="700"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        AllowsTransparency="True"
         Background="Transparent"
-        Icon="{StaticResource Icon}"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        AllowsTransparency="True">
 
     <Border Grid.Column="0"
             CornerRadius="35,30,30,35"

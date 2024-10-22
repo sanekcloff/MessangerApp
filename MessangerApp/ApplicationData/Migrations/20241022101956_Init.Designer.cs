@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApplicationData.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241014133356_Fix_props")]
-    partial class Fix_props
+    [Migration("20241022101956_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -103,6 +103,9 @@ namespace ApplicationData.Migrations
                         .HasColumnType("BLOB");
 
                     b.Property<bool>("IsDeleted")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsOnline")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("LastActive")

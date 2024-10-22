@@ -24,7 +24,6 @@ namespace Messanger.Views
         MainViewModel viewModel;
         public MainView(User currentUser)
         {
-            InitializeComponent();
             viewModel = new MainViewModel(currentUser);
             DataContext = viewModel;
         }

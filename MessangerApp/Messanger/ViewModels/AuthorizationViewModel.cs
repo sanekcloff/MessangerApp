@@ -19,15 +19,19 @@ namespace Messanger.ViewModels
 {
     public class AuthorizationViewModel : ViewModelBase
     {
-        public AuthorizationViewModel(Window window)
+        public AuthorizationViewModel(Window window, AppDbContext context)
         {
             currentWindow = window;
+            this.context = context;
+            email = null!;
+            password = string.Empty;
         }
         #region Feilds & Properties
-        private static Window? currentWindow;
-        private string login = string.Empty; 
-        private string password = string.Empty;
-        public string Login { get => login; set => Set(ref login, value, nameof(Login)); }
+        private AppDbContext context;
+        private Window currentWindow;
+        private string email;
+        private string password;
+        public string Email { get => email; set => Set(ref email, value, nameof(Email)); }
         public string Password { get => password; set => Set(ref password, value, nameof(Password)); }
         #endregion
 
@@ -38,12 +42,13 @@ namespace Messanger.ViewModels
         });
         public RelayCommand LoginCommand { get; } = new(o =>
         {
-            new MainView(new AppDbContext().Users.FirstOrDefault()!).Show();
-            currentWindow!.Close();
+            var email = Email;
+            new MainView(UserService.Login(email,password, context)).Show();
+            currentWindow.Close();
         });
         public RelayCommand RegisterCommand { get; } = new(o =>
         {
-            
+            new RegistrationView(new AppDbContext()).ShowDialog();
         });
         #endregion
     }

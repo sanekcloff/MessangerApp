@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Messanger.Views"
         mc:Ignorable="d"
-        Title="MainView" Height="450" Width="800"
+        Title="Chat" Height="450" Width="800"
         WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
         Background="Transparent"
-        AllowsTransparency="True"
-        WindowStyle="None">
+        AllowsTransparency="True">
     
     <Grid>
 
@@ -30,7 +30,7 @@
                            Margin="5,2,2,2"/>
 
                     <Label Margin="0,0,0,0"
-                           Content="User"
+                           Content="Talker"
                            VerticalAlignment="Center"/>
 
                 </StackPanel>

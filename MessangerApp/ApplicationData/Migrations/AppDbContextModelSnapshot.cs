@@ -102,6 +102,9 @@ namespace ApplicationData.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("INTEGER");
 
+                    b.Property<bool>("IsOnline")
+                        .HasColumnType("INTEGER");
+
                     b.Property<DateTime>("LastActive")
                         .HasColumnType("TEXT");
 
