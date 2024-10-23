@@ -1,15 +1,28 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <Style x:Key="UploadedImage" TargetType="Border">
-        <Setter Property="Background" Value="{DynamicResource Image}"/>
+    <Style x:Key="UploadedImage" TargetType="Ellipse">
+        <Setter Property="Fill" Value="{DynamicResource Patch}"/>
+        <Setter Property="Margin" Value="5"/>
         <Style.Triggers>
-            <DataTrigger Binding="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Value="">
-                <Setter Property="Background" Value="{DynamicResource SecondaryColor}"/>
+            <DataTrigger Binding="{Binding ImagePath, UpdateSourceTrigger=PropertyChanged}" Value="">
+                <Setter Property="Fill" Value="{DynamicResource Patch}"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding ImagePath, UpdateSourceTrigger=PropertyChanged}" Value="{x:Null}">
+                <Setter Property="Fill" Value="{DynamicResource Patch}"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsUploaded, UpdateSourceTrigger=PropertyChanged}" Value="true">
+                <Setter Property="Fill">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="{Binding Path = ImagePath, UpdateSourceTrigger=PropertyChanged}"
+                                    Stretch="UniformToFill"/>
+                    </Setter.Value>
+                </Setter>
             </DataTrigger>
         </Style.Triggers>
     </Style>
-    
-    <ImageBrush x:Key="Image" ImageSource="A:\Artstation\Профиль\Logo_sanekcl.png"/>
-    
+
+    <ImageBrush x:Key="Patch" ImageSource="pack://application:,,,/UI;component/Assets/Icons/Controls/Patch/userPatch.png"
+                Stretch="UniformToFill"/>
+
 </ResourceDictionary>

@@ -13,6 +13,7 @@
                 <ResourceDictionary Source="pack://application:,,,/UI;component/Styles/Controls/Button.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/UI;component/Styles/Controls/ListView.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/UI;component/Styles/Controls/Ellipse.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/UI;component/Styles/Controls/Window.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

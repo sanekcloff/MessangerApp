@@ -31,6 +31,7 @@ namespace Messanger.ViewModels
             nickname = string.Empty;
             password = string.Empty;
             imagePath = string.Empty;
+            IsUploaded = false;
 
             // Commands
             Registration = new(o =>
@@ -45,10 +46,13 @@ namespace Messanger.ViewModels
             {
                 if (openFileDialog.ShowDialog() == true)
                 {
-                    imagePath = openFileDialog.FileName;
-                    var image = new ImageBrush(new BitmapImage(new Uri(imagePath)));
-                    image.Stretch = Stretch.UniformToFill;
-                    (window as RegistrationView)!.Avatar.Fill = image;
+                    ImagePath = openFileDialog.FileName;
+                    IsUploaded=true;
+
+                    //imagePath = openFileDialog.FileName;
+                    //var image = new ImageBrush(new BitmapImage(new Uri(imagePath)));
+                    //image.Stretch = Stretch.UniformToFill;
+                    //(window as RegistrationView)!.Avatar.Fill = image;
                 }
             });
         }
@@ -57,11 +61,13 @@ namespace Messanger.ViewModels
         private Window window;
         private OpenFileDialog openFileDialog;
 
+        private bool isUploaded;
         private string email;
         private string nickname;
         private string password;
         private string imagePath;
 
+        public bool IsUploaded { get => isUploaded; set => Set(ref isUploaded, value, nameof(IsUploaded)); }
         public string Email { get => email; set => Set(ref email, value, nameof(Email)); }
         public string Password { get => password; set => Set(ref password, value, nameof(Password)); }
         public string Nickname { get => nickname; set => Set(ref nickname, value, nameof(Nickname)); }

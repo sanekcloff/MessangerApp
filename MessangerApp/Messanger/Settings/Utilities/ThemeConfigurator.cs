@@ -27,6 +27,7 @@ namespace Messanger.Settings.Utilities
                 new ResourceDictionary() { Source = new Uri("pack://application:,,,/UI;component/Styles/Controls/Button.xaml") },
                 new ResourceDictionary() { Source = new Uri("pack://application:,,,/UI;component/Styles/Controls/ListView.xaml") },
                 new ResourceDictionary() { Source = new Uri("pack://application:,,,/UI;component/Styles/Controls/Ellipse.xaml") },
+                new ResourceDictionary() { Source = new Uri("pack://application:,,,/UI;component/Styles/Controls/Window.xaml") },
                 new ResourceDictionary() { Source = new Uri("pack://application:,,,/UI;component/Styles/Themes/Statuses.xaml") }
             };
             // Очистка текущих ресурсов

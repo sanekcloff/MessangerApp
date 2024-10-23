@@ -24,8 +24,8 @@ namespace Messanger.ViewModels
             // Properties
             currentWindow = window;
             this.context = context;
-            email = null!;
-            password = string.Empty;
+            email = "test";
+            password = "test";
 
             // Commands
             ChangeThemeCommand = new(o =>

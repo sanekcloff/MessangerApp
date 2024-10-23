@@ -7,9 +7,7 @@
         mc:Ignorable="d"
         Title="Talker: Registration" Height="450" Width="300"
         WindowStartupLocation="CenterScreen"
-        WindowStyle="None"
-        Background="Transparent"
-        AllowsTransparency="True">
+        Style="{StaticResource Window}">
     
     <Grid>
 
@@ -17,16 +15,24 @@
                 CornerRadius="30"
                 x:Name="DragBorder"
                 MouseLeftButtonDown="DragBorder_MouseLeftButtonDown"
-                BorderBrush="{DynamicResource AccentColor}"
-                BorderThickness="0,0,0,2">
+                Style="{StaticResource WindowBorder}">
 
             <StackPanel Orientation="Vertical"
                         VerticalAlignment="Center">
 
-                <Ellipse Width="150"
-                        Height="150"
-                         Fill="{DynamicResource SecondaryColor}"
-                         x:Name="Avatar"/>
+                <Grid Height="150"
+                      Width="150">
+
+                    <Ellipse Width="150"
+                             Height="150"
+                             Fill="{DynamicResource QuaternaryColor}"/>
+
+                    <Ellipse Width="140"
+                             Height="140"
+                             Style="{DynamicResource UploadedImage}"
+                             x:Name="Avatar"/>
+
+                </Grid>
 
                 <Button Style="{DynamicResource TranparentButtonStyle}"
                         Content="Upload Image"

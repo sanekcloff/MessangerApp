@@ -7,9 +7,7 @@
         mc:Ignorable="d"
         Title="Chat" Height="450" Width="800"
         WindowStartupLocation="CenterScreen"
-        WindowStyle="None"
-        Background="Transparent"
-        AllowsTransparency="True">
+        Style="{StaticResource Window}">
     
     <Grid>
 
@@ -103,21 +101,33 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
-                                <Ellipse Width="40"
-                                         Height="40"
-                                         Margin="5"
-                                         Fill="{Binding CurrentUser.Color}"
-                                         Stroke="{DynamicResource Offline}"
-                                         StrokeThickness="2"/>
+                                <Grid Grid.Column="0">
+                                    
+                                    <Ellipse Width="40"
+                                             Height="40"
+                                             Margin="5"
+                                             Fill="{Binding CurrentUser.Color}"
+                                             Stroke="{DynamicResource Offline}"
+                                             StrokeThickness="2"
+                                             Panel.ZIndex="1"/>
+
+                                    <Ellipse Width="40"
+                                             Height="40"
+                                             Margin="5"
+                                             Style="{StaticResource UploadedImage}"/>
+
+
+                                </Grid>
 
                                 <StackPanel Grid.Column="1"
                                             VerticalAlignment="Center"
                                             Margin="4">
 
-                                    <TextBlock Text="{Binding CurrentUser.Username, UpdateSourceTrigger=PropertyChanged}" 
-                                               FontFamily="{DynamicResource PrimaryFont}"/>
+                                    <Label Content="Text" 
+                                           FontFamily="{DynamicResource PrimaryFont}"
+                                           Margin="0,0,0,-5"/>
 
-                                    <TextBlock Text="Custom status..."
+                                    <Label Content="Custom status..."
                                                FontFamily="{DynamicResource PrimaryFont}"
                                                FontSize="8"/>
 

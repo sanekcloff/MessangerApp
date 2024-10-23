@@ -14,6 +14,7 @@
     <None Remove="Assets\Icons\Controls\Buttons\ThemeButton\LightTheme.png" />
     <None Remove="Assets\Icons\Controls\Buttons\ThemeButton\LightTheme_Focused.png" />
     <None Remove="Assets\Icons\Controls\Buttons\ThemeButton\LightTheme_Pressed.png" />
+    <None Remove="Assets\Icons\Controls\Patch\UserPatch.png" />
     <None Remove="Assets\Icons\Logos\Icon.ico" />
     <None Remove="Assets\Icons\Logos\LogoDark.png" />
     <None Remove="Assets\Icons\Logos\LogoLight.png" />
@@ -39,6 +40,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Assets\Icons\Controls\Buttons\ThemeButton\LightTheme_Pressed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\Controls\Patch\UserPatch.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Assets\Icons\Logos\Icon.ico">

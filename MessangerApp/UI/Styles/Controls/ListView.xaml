@@ -14,7 +14,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListViewItem">
-                    <Border Background="{TemplateBinding Background}" Margin="5">
+                    <Border Background="{TemplateBinding Background}" Margin="-1">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="50"/>
@@ -28,13 +28,13 @@
                                      Stroke="{DynamicResource Offline}"
                                      StrokeThickness="2"/>
 
-                            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="4">
+                            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="0">
 
-                                <TextBlock Text="Username#0000" FontFamily="{DynamicResource PrimaryFont}"/>
+                                <Label Content="Username#0000" FontFamily="{DynamicResource PrimaryFont}" Margin="-4"/>
 
-                                <TextBlock Text="Custom status..." FontFamily="{DynamicResource PrimaryFont}" FontSize="8"/>
-                                
-                                <TextBlock Text="Last message..." FontFamily="{DynamicResource PrimaryFont}" FontSize="8"/>
+                                <Label Content="Custom status..." FontFamily="{DynamicResource PrimaryFont}" FontSize="8" Margin="-4"/>
+
+                                <Label Content="Last message..." FontFamily="{DynamicResource PrimaryFont}" FontSize="8" Margin="-4"/>
 
                             </StackPanel>
 
@@ -43,6 +43,11 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource SecondaryColor}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
     
 </ResourceDictionary>

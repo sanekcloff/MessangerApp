@@ -8,10 +8,8 @@
         mc:Ignorable="d"
         Title="Talker Auth" Height="450" Width="700"
         WindowStartupLocation="CenterScreen"
-        WindowStyle="None"
-        Background="Transparent"
         ResizeMode="NoResize"
-        AllowsTransparency="True">
+        Style="{StaticResource Window}">
 
     <Border Grid.Column="0"
             CornerRadius="35,30,30,35"
@@ -19,8 +17,7 @@
             x:Name="DragDropBorder"
             MouseLeftButtonDown="DragDropBorder_MouseLeftButtonDown"
             Panel.ZIndex="0"
-            BorderBrush="Transparent"
-            BorderThickness="0">
+            Style="{StaticResource WindowBorder}">
 
         <Grid>
 

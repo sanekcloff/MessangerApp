@@ -27,6 +27,7 @@ namespace Messanger.Views
         
         public AuthorizationView()
         {
+            InitializeComponent();
             viewModel = new(this,new AppDbContext());
             DataContext = viewModel;
         }
