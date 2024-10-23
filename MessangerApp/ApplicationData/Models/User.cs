@@ -37,6 +37,7 @@ namespace ApplicationData.Models
 
         [NotMapped]
         public string Username => $"{Nickname}#{Tag}";
+        public string DisplayStatus => string.IsNullOrEmpty(CustomStatus) ? "Указать статус" : $"{CustomStatus}";
         public string CreationDateFormated => CreationDate.ToString("f");
         public string LastActiveFormated => CreationDate.ToString("f");
 

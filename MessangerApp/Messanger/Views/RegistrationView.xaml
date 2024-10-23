@@ -30,7 +30,7 @@
                     <Ellipse Width="140"
                              Height="140"
                              Style="{DynamicResource UploadedImage}"
-                             x:Name="Avatar"/>
+                             x:Name="UserImage"/>
 
                 </Grid>
 

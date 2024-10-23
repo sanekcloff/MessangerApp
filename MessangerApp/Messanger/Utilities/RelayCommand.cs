@@ -12,7 +12,7 @@ namespace Messanger.Utilities
         private Action<object> execute;
         private Func<object, bool> canExecute;
 
-        public event EventHandler CanExecuteChanged
+        public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
@@ -24,14 +24,8 @@ namespace Messanger.Utilities
             this.canExecute = canExecute;
         }
 
-        public bool CanExecute(object parameter)
-        {
-            return this.canExecute == null || this.canExecute(parameter);
-        }
+        public bool CanExecute(object parameter) => this.canExecute == null || this.canExecute(parameter);
 
-        public void Execute(object parameter)
-        {
-            this.execute(parameter);
-        }
+        public void Execute(object parameter) => this.execute(parameter);
     }
 }

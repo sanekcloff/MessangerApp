@@ -12,7 +12,7 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="25"/>
+            <RowDefinition Height="35"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         
@@ -64,7 +64,7 @@
             <Grid>
                 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="250"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 
@@ -76,7 +76,7 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="50"/>
                             <RowDefinition/>
-                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="70"/>
                         </Grid.RowDefinitions>
 
                         <TextBox Margin="10"
@@ -94,46 +94,29 @@
                         <Border Grid.Row="2"
                                 Background="{DynamicResource SecondaryColor}">
 
-                            <Grid>
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
 
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="51"/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
+                                <Grid>
 
-                                <Grid Grid.Column="0">
-                                    
-                                    <Ellipse Width="40"
-                                             Height="40"
-                                             Margin="5"
-                                             Fill="{Binding CurrentUser.Color}"
-                                             Stroke="{DynamicResource Offline}"
-                                             StrokeThickness="2"
-                                             Panel.ZIndex="1"/>
+                                    <Ellipse Width="40" Height="40" Style="{StaticResource UploadedImage}" x:Name="UserImage" Panel.ZIndex="1"/>
 
-                                    <Ellipse Width="40"
-                                             Height="40"
-                                             Margin="5"
-                                             Style="{StaticResource UploadedImage}"/>
-
+                                    <Ellipse Width="40" Height="40" Margin="5" Fill="{Binding CurrentUser.Color, UpdateSourceTrigger=PropertyChanged}"/>
 
                                 </Grid>
 
-                                <StackPanel Grid.Column="1"
-                                            VerticalAlignment="Center"
-                                            Margin="4">
+                                <StackPanel VerticalAlignment="Center" Margin="4">
 
-                                    <Label Content="Text" 
-                                           FontFamily="{DynamicResource PrimaryFont}"
-                                           Margin="0,0,0,-5"/>
+                                    <Label Content="{Binding CurrentUser.Username}" FontFamily="{DynamicResource PrimaryFont}" Margin="0,0,0,-5"
+                                           Width="160"/>
 
-                                    <Label Content="Custom status..."
-                                               FontFamily="{DynamicResource PrimaryFont}"
-                                               FontSize="8"/>
+                                    <Label Content="{Binding CurrentUser.DisplayStatus}" FontFamily="{DynamicResource PrimaryFont}" FontSize="8"
+                                           Width="160"/>
 
                                 </StackPanel>
 
-                            </Grid>
+                            </StackPanel>
 
                         </Border>
 
