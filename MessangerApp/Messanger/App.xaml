@@ -7,13 +7,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/UI;component/Styles/Themes/DarkTheme.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/UI;component/Styles/Themes/Statuses.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/UI;component/Styles/Controls/Label.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/UI;component/Styles/Controls/TextBox.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/UI;component/Styles/Controls/Button.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/UI;component/Styles/Controls/ListView.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/UI;component/Styles/Controls/Ellipse.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/UI;component/Styles/Controls/Window.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/UI;component/Styles/FullStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

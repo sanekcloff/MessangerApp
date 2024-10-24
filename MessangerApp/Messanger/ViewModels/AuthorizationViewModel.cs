@@ -38,7 +38,7 @@ namespace Messanger.ViewModels
             });
             LoginCommand = new(o => 
             {
-                new MainView(UserService.Login(email, password, context)).Show();
+                new MainView(UserService.Login(email, password, context), context).Show();
                 currentWindow.Close();
             });
         }

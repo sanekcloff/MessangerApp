@@ -1,4 +1,5 @@
 ﻿using ApplicationData.Core.Context;
+using ApplicationData.Utilities.Converters;
 using ApplicationData.Utilities.Enums;
 using ApplicationData.Utilities.Generators;
 using System;
@@ -10,6 +11,8 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace ApplicationData.Models
 {
@@ -17,7 +20,7 @@ namespace ApplicationData.Models
     {
         public Guid Id { get; set; }
 
-        public byte[]? Image { get; set; } = [];
+        public byte[]? Image { get; set; } = null!;
         public string Color { get; set; } = string.Empty;
         public string Nickname { get; set; } = string.Empty; 
         public string Tag { get; set; } = string.Empty;
@@ -38,6 +41,21 @@ namespace ApplicationData.Models
         [NotMapped]
         public string Username => $"{Nickname}#{Tag}";
         public string DisplayStatus => string.IsNullOrEmpty(CustomStatus) ? "Указать статус" : $"{CustomStatus}";
+        public ImageBrush DisplayImage
+        {
+            get
+            {
+                if (Image==null)
+                {
+                    return new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/UI;component/Assets/Icons/Controls/Patch/UserPatch.png")));
+                }
+                else
+                {
+                    return new ImageBrush(ImageConverter.GetBitmapImage(Image));
+                }
+            }
+        }
+        public bool WithAvatar { get; }
         public string CreationDateFormated => CreationDate.ToString("f");
         public string LastActiveFormated => CreationDate.ToString("f");
 

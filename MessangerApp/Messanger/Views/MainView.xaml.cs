@@ -1,4 +1,6 @@
-﻿using ApplicationData.Models;
+﻿using ApplicationData.Core.Context;
+using ApplicationData.Models;
+using ApplicationData.Services;
 using Messanger.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -22,16 +24,16 @@ namespace Messanger.Views
     public partial class MainView : Window
     {
         MainViewModel viewModel;
-        public MainView(User currentUser)
+        public MainView(User currentUser, AppDbContext context)
         {
             InitializeComponent();
-            viewModel = new MainViewModel(currentUser,this);
+            viewModel = new MainViewModel(currentUser,this, context);
             DataContext = viewModel;
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            viewModel.CloseApp();
         }
 
         private void DragBorder_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

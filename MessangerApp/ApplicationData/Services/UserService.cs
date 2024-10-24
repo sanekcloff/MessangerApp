@@ -7,8 +7,10 @@ using ApplicationData.Utilities.Enums;
 using ApplicationData.Utilities.Generators;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.Json;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -18,6 +20,18 @@ namespace ApplicationData.Services
 {
     public static class UserService
     {
+        public static void UserEnter(ref User user, AppDbContext context)
+        {
+            user.IsOnline = true;
+            user.LastActive = DateTime.Now;
+            context.SaveChanges();
+        }
+        public static void UserExit(User user, AppDbContext context)
+        {
+            user.IsOnline = false;
+            user.LastActive = DateTime.Now;
+            context.SaveChanges();
+        }
         public static User Login(string email, string password, AppDbContext context)
         {
             var salts = context.Users.Select(x => x.Salt).ToList();
@@ -29,6 +43,7 @@ namespace ApplicationData.Services
                 if (currentUser!=null) 
                 {
                     Debug.WriteLine("Учётная запись найдена");
+                    UserEnter(ref currentUser,context);
                     return currentUser;
                 }
             }
@@ -48,7 +63,7 @@ namespace ApplicationData.Services
             user.CustomStatus = null;
             user.CreationDate = DateTime.Now;
             user.LastActive = DateTime.Now;
-            user.Status = Statuses.Offline;
+            user.Status = Statuses.Online;
             user.IsDeleted = false;
             user.IsOnline = false;
             user.Image = !string.IsNullOrEmpty(imagePath) ? ImageConverter.ImageToBytes(imagePath) : null;

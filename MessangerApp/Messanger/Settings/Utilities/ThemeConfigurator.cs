@@ -22,13 +22,7 @@ namespace Messanger.Settings.Utilities
             var styles = new List<ResourceDictionary>()
             { 
                 // Директории 
-                new ResourceDictionary() { Source = new Uri("pack://application:,,,/UI;component/Styles/Controls/Label.xaml") },
-                new ResourceDictionary() { Source = new Uri("pack://application:,,,/UI;component/Styles/Controls/TextBox.xaml") },
-                new ResourceDictionary() { Source = new Uri("pack://application:,,,/UI;component/Styles/Controls/Button.xaml") },
-                new ResourceDictionary() { Source = new Uri("pack://application:,,,/UI;component/Styles/Controls/ListView.xaml") },
-                new ResourceDictionary() { Source = new Uri("pack://application:,,,/UI;component/Styles/Controls/Ellipse.xaml") },
-                new ResourceDictionary() { Source = new Uri("pack://application:,,,/UI;component/Styles/Controls/Window.xaml") },
-                new ResourceDictionary() { Source = new Uri("pack://application:,,,/UI;component/Styles/Themes/Statuses.xaml") }
+                new ResourceDictionary() { Source = new Uri("pack://application:,,,/UI;component/Styles/FullStyles.xaml") }
             };
             // Очистка текущих ресурсов
             Application.Current.Resources.Clear();

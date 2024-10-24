@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Messanger.Views"
+        xmlns:ui="clr-namespace:UI.UserControls;assembly=UI"
         mc:Ignorable="d"
         Title="Chat" Height="450" Width="800"
         WindowStartupLocation="CenterScreen"
@@ -94,25 +95,15 @@
                         <Border Grid.Row="2"
                                 Background="{DynamicResource SecondaryColor}">
 
-                            <StackPanel Orientation="Horizontal"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                                <Grid>
+                                <Button Style="{StaticResource UserProfileSettings}"/>
 
-                                    <Ellipse Width="40" Height="40" Style="{StaticResource UploadedImage}" x:Name="UserImage" Panel.ZIndex="1"/>
+                                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,2,2,2">
 
-                                    <Ellipse Width="40" Height="40" Margin="5" Fill="{Binding CurrentUser.Color, UpdateSourceTrigger=PropertyChanged}"/>
+                                    <Label Content="{Binding CurrentUser.Username, UpdateSourceTrigger=PropertyChanged, FallbackValue=User#0000}"/>
 
-                                </Grid>
-
-                                <StackPanel VerticalAlignment="Center" Margin="4">
-
-                                    <Label Content="{Binding CurrentUser.Username}" FontFamily="{DynamicResource PrimaryFont}" Margin="0,0,0,-5"
-                                           Width="160"/>
-
-                                    <Label Content="{Binding CurrentUser.DisplayStatus}" FontFamily="{DynamicResource PrimaryFont}" FontSize="8"
-                                           Width="160"/>
+                                    <Label Content="{Binding CurrentUser.DisplayStatus, UpdateSourceTrigger=PropertyChanged, FallbackValue=Some status...}"/>
 
                                 </StackPanel>
 
