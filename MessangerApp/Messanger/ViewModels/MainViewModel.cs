@@ -4,6 +4,7 @@ using ApplicationData.Services;
 using ApplicationData.Utilities.Converters;
 using Messanger.Utilities;
 using Messanger.Views;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,13 +39,14 @@ namespace Messanger.ViewModels
         #endregion
 
         #region Methods
-        internal async void UpdateContext(object? sender, EventArgs e)
+        internal void UpdateContext(object? sender, EventArgs e)
         {
             currentUser.LastActive = DateTime.Now;
-            await context.SaveChangesAsync();
+            context.SaveChangesAsync();
         }
         internal void CloseApp()
         {
+            UpdateContext(this, EventArgs.Empty);
             UserService.UserExit(currentUser, context);
             Application.Current.Shutdown();
         }

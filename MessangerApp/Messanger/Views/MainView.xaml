@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Messanger.Views"
-        xmlns:ui="clr-namespace:UI.UserControls;assembly=UI"
         mc:Ignorable="d"
         Title="Chat" Height="450" Width="800"
         WindowStartupLocation="CenterScreen"
@@ -94,21 +93,9 @@
 
                         <Border Grid.Row="2"
                                 Background="{DynamicResource SecondaryColor}">
-
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-
-                                <Button Style="{StaticResource UserProfileSettings}"/>
-
-                                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,2,2,2">
-
-                                    <Label Content="{Binding CurrentUser.Username, UpdateSourceTrigger=PropertyChanged, FallbackValue=User#0000}"/>
-
-                                    <Label Content="{Binding CurrentUser.DisplayStatus, UpdateSourceTrigger=PropertyChanged, FallbackValue=Some status...}"/>
-
-                                </StackPanel>
-
-                            </StackPanel>
-
+                            
+                            
+                            
                         </Border>
 
                     </Grid>

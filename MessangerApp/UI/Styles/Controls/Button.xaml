@@ -1,6 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:UI.UserControls">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
 
     <Style x:Key="WindowStateButtonStyle" TargetType="Button">
@@ -145,6 +144,43 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    
+    <!--#region UserPanel-->
+
+    <Style x:Key="UserStatus" TargetType="Button">
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Background" Value="{DynamicResource Offline}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+
+                    <Ellipse Margin="{TemplateBinding Margin}"
+                         Fill="{TemplateBinding Background}"/>
+
+                    <ControlTemplate.Triggers>
+
+                        <DataTrigger Binding="{Binding CurrentUser.Status, UpdateSourceTrigger=PropertyChanged}" Value="Online">
+                            <Setter Property="Background" Value="{DynamicResource Online}"/>
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding CurrentUser.Status, UpdateSourceTrigger=PropertyChanged}" Value="Ofline">
+                            <Setter Property="Background" Value="{DynamicResource Offline}"/>
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding CurrentUser.Status, UpdateSourceTrigger=PropertyChanged}" Value="IsBussy">
+                            <Setter Property="Background" Value="{DynamicResource IsBussy}"/>
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding CurrentUser.Status, UpdateSourceTrigger=PropertyChanged}" Value="IsMoveAway">
+                            <Setter Property="Background" Value="{DynamicResource IsMoveAway}"/>
+                        </DataTrigger>
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
     <Style x:Key="UserProfileSettings" TargetType="Button">
         <Setter Property="Margin" Value="5"/>
@@ -169,6 +205,13 @@
 
                             </Grid>
 
+                            <Button Style="{StaticResource UserStatus}"
+                                    Height="15"
+                                    Width="15"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                    Panel.ZIndex="4"/>
+
                             <Ellipse x:Name="Avatar"
                                      Width="50"
                                      Height="50"
@@ -191,21 +234,21 @@
                             <Setter Property="Opacity" TargetName="Settings" Value=".4"/>
                         </Trigger>
 
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Opacity" TargetName="Settings" Value=".4"/>
+                        </Trigger>
+
                         <DataTrigger Binding="{Binding CurrentUser.Image}" Value="{x:Null}">
                             <Setter TargetName="Background" Property="Visibility" Value="Visible"/>
                         </DataTrigger>
-                        
+
                     </ControlTemplate.Triggers>
-                    
+
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-
-    <Style TargetType="{x:Type local:UserImage}">
-        <Setter Property="Username" Value="{Binding CurrentUser.Username}"/>
-        <Setter Property="CustomStatus" Value="{Binding CurrentUser.CustomStatus}"/>
-        <Setter Property="Image" Value="{Binding CurrentUser.DisplayImage}"/>
-    </Style>
+    
+    <!--#endregion-->
 
 </ResourceDictionary>

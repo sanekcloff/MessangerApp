@@ -6,10 +6,10 @@
     <!--#endregion-->
 
     <!--#region Colors-->
-    <SolidColorBrush x:Key="PrimaryColor" Color="#42454c"/>
+    <SolidColorBrush x:Key="PrimaryColor" Color="#232528"/>
     <SolidColorBrush x:Key="SecondaryColor" Color="#2F3136"/>
     <SolidColorBrush x:Key="TertiaryColor" Color="#202225"/>
-    <SolidColorBrush x:Key="QuaternaryColor" Color="#595a5e"/>
+    <SolidColorBrush x:Key="QuaternaryColor" Color="#292c30"/>
     <LinearGradientBrush x:Key="AccentColor" StartPoint="0,0" EndPoint="1,0">
         <GradientStop Color="#9332cb" Offset="0"/>
         <GradientStop Color="#734bd6" Offset="1"/>
